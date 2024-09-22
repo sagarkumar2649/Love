@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fcb69f);
+            color: white;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+        h1 {
+            font-size: 5rem;
+            color: lightblue;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        #main {
+            border: 1px solid white;
+            padding: 50px;
+            border-radius: 25px;
+            box-shadow: 0 0 20px rgb(170, 39, 124);
+            text-align: center;
+        }
+        #btn {
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 20px;
+        }
+        button {
+            font-family: 'Courier New', Courier, monospace;
+            background: red;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            border: none;
+            transition: background 0.3s;
+        }
+        button:hover { background: darkred; }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <h1 id="lvu">I Love You ❤️</h1>
+        <div id="btn">
+            <button id="Yes">Yes 🥺</button>
+            <button id="No">No 😅</button>
+        </div>
+    </div>
+</body>
+<script>
+    const yes = document.querySelector('#Yes');
+    const no = document.querySelector('#No');
+    const u2 = document.querySelector('#lvu');
+
+   
+    let loveCount = 1;
+
+    yes.addEventListener('click', () => {  
+        if (loveCount === 20) {
+            u2.textContent = "Love u unCountable bby 😘";
+            return;
+        }
+        u2.textContent = "";
+        loveCount++;
+
+        u2.textContent = `Love u ${loveCount} bby 😘`;  
+    });
+
+    
+    function swap() {
+        const parent = yes.parentElement;
+        if (yes.nextSibling == no) {
+            parent.insertBefore(no, yes);
+        } else {
+            parent.insertBefore(yes, no);
+        }
+    }
+
+    no.addEventListener('click', swap); 
+</script>
+</html>
